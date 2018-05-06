@@ -5,10 +5,30 @@
     <parent>
         <artifactId>RXSCM-Parent</artifactId>
         <groupId>com.xtwy</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <relativePath>../RXSCM-Parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>RXSCM-Sys-Service</artifactId>
     <name>RXSCM-Sys-Service</name>
+
+    <dependencies>
+        <!--公共模块-->
+        <dependency>
+            <groupId>com.xtwy</groupId>
+            <artifactId>RXSCM-Sys-Config</artifactId>
+            <version>${sys-config.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xtwy</groupId>
+            <artifactId>RXSCM-Sys-Facade</artifactId>
+            <version>${sys-facade.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xtwy</groupId>
+            <artifactId>RXSCM-Sys-Core</artifactId>
+            <version>${sys-core.version}</version>
+        </dependency>
+
+    </dependencies>
 </project>
