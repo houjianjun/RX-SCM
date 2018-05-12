@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 /**
- * 类的描述：用户表--服务层接口
+ * 类的描述：用户表--业务层接口
  * @作者: 侯建军
  * @邮箱: 474177818@qq.com
  * @博客: https://blog.csdn.net/marquis888
@@ -20,7 +20,8 @@ import java.util.Map;
  */
 @Service("SysUserBiz")
 public class SysUserBiz {
-//    @Autowired
+
+    @Autowired
     private SysUserDao sysUserDao;
 
     /**

@@ -6,6 +6,7 @@ import com.xtwy.facade.user.entity.SysUser;
 import com.xtwy.facade.user.service.SysUserFacade;
 import com.xtwy.service.user.biz.SysUserBiz;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
@@ -19,17 +20,19 @@ import java.util.Map;
  * @版本: v1.0
  * @jdk版本使用: JDK1.8
  */
+@Service("sysUserFacade")
 public class SysUserFacadeImpl implements SysUserFacade {
 
-//    @Autowired
+    @Autowired
     private SysUserBiz sysUserBiz;
 
     /**
      * 保存用户信息.
      * @param sysUser
      */
-    public void create(SysUser sysUser) {
+    public long create(SysUser sysUser) {
         sysUserBiz.create(sysUser);
+        return 0;
     }
     /**
      * 根据ID获取用户信息.

@@ -30,5 +30,62 @@
             <version>${sys-core.version}</version>
         </dependency>
 
+        <!-- <dependency>
+             <groupId>org.apache.curator</groupId>
+             <artifactId>curator-client</artifactId>
+             <version>4.0.1</version>
+         </dependency>
+         <dependency>
+             <groupId>org.apache.zookeeper</groupId>
+             <artifactId>zookeeper</artifactId>
+             <version>3.4.12</version>
+         </dependency>-->
     </dependencies>
+    <build>
+        <!--资源配置-->
+        <resources>
+            <resource>
+                <targetPath>${project.build.directory}/classes</targetPath>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+            <!-- 结合com.alibaba.dubbo.container.Main -->
+            <resource>
+                <targetPath>${project.build.directory}/classes/META-INF/spring</targetPath>
+                <!--配置资源文件-->
+                <directory>src/main/resources/spring</directory>
+                <filtering>true</filtering>
+                <!--spring配置文件-->
+                <includes>
+                    <include>spring-config.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <classesDirectory>target/classes/</classesDirectory>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.alibaba.dubbo.container.Main</mainClass>
+                            <!-- 打包时 MANIFEST.MF文件不记录的时间戳版本 -->
+                            <useUniqueVersions>false</useUniqueVersions>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>.</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
